@@ -13,3 +13,10 @@ class DogSuccessState extends RandomDogState {
   @override
   List<Object?> get props => [loadedDog];
 }
+
+class DogErrorState extends RandomDogState {
+  final Failure failure;
+  DogErrorState(this.failure);
+  @override
+  List<Object?> get props => [];
+}

@@ -11,6 +11,7 @@ abstract class UseCase<T, P extends Params> {
       return await execute(params);
     } catch (e) {
       // log e
+      print(e);
       return Left(UnknownFailure());
     }
   }

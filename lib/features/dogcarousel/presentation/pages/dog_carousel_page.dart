@@ -30,6 +30,9 @@ class DogCarouselView extends StatelessWidget {
           if (state is DogSuccessState) {
             return DogCard(state.loadedDog);
           }
+          if (state is DogErrorState) {
+            return Text('${state.failure.code}');
+          }
           return Center(
             child: CircularProgressIndicator(),
           );
