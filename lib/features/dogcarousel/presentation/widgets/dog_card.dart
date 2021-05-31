@@ -39,13 +39,16 @@ class DogCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.add),
+                    onPressed: () {
+                      BlocProvider.of<RandomDogBloc>(context)
+                          .add(InitialDogRequestedEvent());
+                    },
+                    icon: Icon(Icons.arrow_left),
                     color: Theme.of(context).primaryColor,
                   ),
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(Icons.ac_unit),
+                    icon: Icon(Icons.arrow_right),
                     color: Theme.of(context).errorColor,
                   ),
                 ],
