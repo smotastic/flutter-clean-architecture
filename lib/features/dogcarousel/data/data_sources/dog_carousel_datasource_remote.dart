@@ -3,6 +3,7 @@ import 'package:flutter_clean_architecture/features/dogcarousel/data/models/dog_
 import 'package:flutter_clean_architecture/core/domain/failure.dart';
 
 import 'package:dartz/dartz.dart';
+import 'package:flutter_clean_architecture/features/dogcarousel/domain/dog_carousel_failures.dart';
 import 'package:injectable/injectable.dart';
 
 import 'dog_carousel_datasource.dart';
@@ -19,12 +20,12 @@ class DogCarouselDatasourceRemoteRest extends DogCarouselDatasourceRemote {
     var response = await http.get(url);
     if (response.statusCode == 200) {
       var jsonResponse = convert.jsonDecode(response.body) as List<dynamic>;
-      return Right(DogModel(jsonResponse[0]['id'], jsonResponse[0]['url']));
+      var randomDogJson = jsonResponse[0] as Map<String, dynamic>;
+      return Right(DogModel.fromJson(randomDogJson));
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      return Left(DogCarouselFailures.REMOTE_CALL_FAILED);
     }
-
-    return Right(DogModel(
-        "Shiba Inu", "https://cdn2.thedogapi.com/images/tYnqlqNkz.jpg"));
+    //return Right(DogModel(
+    //   "Shiba Inu", "https://cdn2.thedogapi.com/images/tYnqlqNkz.jpg"));
   }
 }
