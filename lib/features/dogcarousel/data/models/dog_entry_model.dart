@@ -4,18 +4,18 @@ import 'package:json_annotation/json_annotation.dart';
 part 'dog_entry_model.g.dart';
 
 @JsonSerializable()
-class DogModel extends Equatable {
+class DogEntryModel extends Equatable {
   @JsonKey(name: 'id')
   final String name;
   final String url;
 
-  DogModel(this.name, this.url);
+  DogEntryModel(this.name, this.url);
 
   @override
   List<Object?> get props => [name, url];
 
-  factory DogModel.fromJson(Map<String, dynamic> json) =>
-      _$DogModelFromJson(json);
+  factory DogEntryModel.fromJson(Map<String, dynamic> json) =>
+      _$DogEntryModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$DogModelToJson(this);
+  Map<String, dynamic> toJson() => _$DogEntryModelToJson(this);
 }

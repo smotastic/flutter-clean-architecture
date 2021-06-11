@@ -1,4 +1,4 @@
-import 'package:flutter_clean_architecture/features/dogcarousel/data/data_sources/dog_carousel_datasource.dart';
+import 'package:flutter_clean_architecture/features/dogcarousel/data/data_sources/dog_carousel_ds_remote.dart';
 import 'package:flutter_clean_architecture/features/dogcarousel/domain/entities/dog_entry.dart';
 import 'package:flutter_clean_architecture/core/domain/failure.dart';
 import 'package:dartz/dartz.dart';

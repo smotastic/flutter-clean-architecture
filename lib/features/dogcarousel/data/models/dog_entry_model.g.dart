@@ -6,14 +6,15 @@ part of 'dog_entry_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-DogModel _$DogModelFromJson(Map<String, dynamic> json) {
-  return DogModel(
+DogEntryModel _$DogEntryModelFromJson(Map<String, dynamic> json) {
+  return DogEntryModel(
     json['id'] as String,
     json['url'] as String,
   );
 }
 
-Map<String, dynamic> _$DogModelToJson(DogModel instance) => <String, dynamic>{
+Map<String, dynamic> _$DogEntryModelToJson(DogEntryModel instance) =>
+    <String, dynamic>{
       'id': instance.name,
       'url': instance.url,
     };
