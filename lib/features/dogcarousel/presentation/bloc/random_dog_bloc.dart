@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_architecture/core/domain/failure.dart';
 import 'package:flutter_clean_architecture/core/domain/usecase.dart';
-import 'package:flutter_clean_architecture/features/dogcarousel/domain/entities/dog.dart';
+import 'package:flutter_clean_architecture/features/dogcarousel/domain/entities/dog_entry.dart';
 import 'package:flutter_clean_architecture/features/dogcarousel/domain/usecases/random_dog_usecase.dart';
 import 'package:injectable/injectable.dart';
 

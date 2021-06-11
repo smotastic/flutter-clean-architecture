@@ -13,9 +13,11 @@ import 'features/dogcarousel/data/data_sources/dog_carousel_datasource.dart'
 import 'features/dogcarousel/data/data_sources/dog_carousel_datasource_remote.dart'
     as _i4;
 import 'features/dogcarousel/domain/ports/dog_carousel_port.dart' as _i5;
-import 'features/dogcarousel/domain/usecases/random_dog_usecase.dart' as _i7;
-import 'features/dogcarousel/presentation/bloc/random_dog_bloc.dart'
-    as _i8; // ignore_for_file: unnecessary_lambdas
+import 'features/dogcarousel/domain/usecases/random_dog_usecase.dart' as _i8;
+import 'features/dogcarousel/presentation/bloc/random_dog_bloc.dart' as _i10;
+import 'features/dogdetail/domain/usecases/load_dog_usecase.dart' as _i7;
+import 'features/dogdetail/presentation/bloc/detail_dog_bloc.dart'
+    as _i9; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -26,9 +28,12 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i4.DogCarouselDatasourceRemoteRest());
   gh.lazySingleton<_i5.DogCarouselPort>(
       () => _i6.DogCarouselAdapter(get<_i3.DogCarouselDatasourceRemote>()));
-  gh.lazySingleton<_i7.RandomDogUseCase>(
-      () => _i7.RandomDogUseCaseImpl(get<_i5.DogCarouselPort>()));
-  gh.factory<_i8.RandomDogBloc>(
-      () => _i8.RandomDogBloc(get<_i7.RandomDogUseCase>()));
+  gh.lazySingleton<_i7.LoadDogUseCase>(() => _i7.LoadDogUseCaseImpl());
+  gh.lazySingleton<_i8.RandomDogUseCase>(
+      () => _i8.RandomDogUseCaseImpl(get<_i5.DogCarouselPort>()));
+  gh.factory<_i9.DetailDogBloc>(
+      () => _i9.DetailDogBloc(get<_i7.LoadDogUseCase>()));
+  gh.factory<_i10.RandomDogBloc>(
+      () => _i10.RandomDogBloc(get<_i8.RandomDogUseCase>()));
   return get;
 }

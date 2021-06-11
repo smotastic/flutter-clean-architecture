@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_architecture/features/dogcarousel/presentation/bloc/random_dog_bloc.dart';
-import 'package:flutter_clean_architecture/features/dogcarousel/presentation/widgets/dog_card.dart';
+import 'package:flutter_clean_architecture/features/dogcarousel/presentation/widgets/dog_carousel_card.dart';
 import 'package:get_it/get_it.dart';
 
 class DogCarouselPage extends StatelessWidget {
@@ -32,7 +32,7 @@ class DogCarouselView extends StatelessWidget {
           builder: (ctx, state) {
             return Column(
               children: [
-                if (state is DogSuccessState) DogCard(state.loadedDog),
+                if (state is DogSuccessState) DogCarouselCard(state.loadedDog),
                 if (state is DogErrorState) Text('${state.failure.code}'),
                 if (state is DogLoadingState)
                   Center(

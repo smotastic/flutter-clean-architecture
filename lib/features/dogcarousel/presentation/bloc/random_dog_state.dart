@@ -8,7 +8,7 @@ class DogLoadingState extends RandomDogState {
 }
 
 class DogSuccessState extends RandomDogState {
-  final Dog loadedDog;
+  final DogEntry loadedDog;
   DogSuccessState(this.loadedDog);
   @override
   List<Object?> get props => [loadedDog];

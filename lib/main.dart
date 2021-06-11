@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_clean_architecture/features/dogdetail/presentation/pages/dog_detail_page.dart';
 import 'package:flutter_clean_architecture/service_locator.dart';
 
 import 'features/dogcarousel/presentation/pages/dog_carousel_page.dart';
@@ -19,6 +20,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: DogCarouselPage(),
+      routes: {
+        DogDetailPage.routeName: (_) => DogDetailPage(),
+      },
     );
   }
 }
