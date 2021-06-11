@@ -1,3 +1,4 @@
+import 'package:flutter_clean_architecture/core/data/data_sources/dog_api_helper.dart';
 import 'package:flutter_clean_architecture/features/dogcarousel/data/models/dog_entry_model.dart';
 
 import 'package:flutter_clean_architecture/core/domain/failure.dart';
@@ -15,7 +16,7 @@ import 'dart:convert' as convert;
 class DogCarouselDatasourceRemoteRest extends DogCarouselDatasourceRemote {
   @override
   Future<Either<Failure, DogEntryModel>> fetchRandomDog() async {
-    var url = Uri.https('api.thedogapi.com', '/v1/images/search');
+    var url = DogApi.url('/v1/images/search');
 
     var response = await http.get(url);
     if (response.statusCode == 200) {

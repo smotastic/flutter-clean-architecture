@@ -422,6 +422,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
+  smartstruct:
+    dependency: "direct main"
+    description:
+      name: smartstruct
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.5"
   source_gen:
     dependency: transitive
     description:
